@@ -25,6 +25,9 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# Treble
+PRODUCT_USE_VNDK_OVERRIDE := true
+
 # Inherit from tama-common
 $(call inherit-product, device/sony/tama-common/common.mk)
 
@@ -51,6 +54,7 @@ PRODUCT_COPY_FILES += \
 
 # NFC
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp-octopus_RF.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp-octopus_RF.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp_RF.conf
